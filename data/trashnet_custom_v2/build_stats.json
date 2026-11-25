@@ -1,0 +1,173 @@
+{
+ "original_images": 2527,
+ "per_class_original": {
+  "cardboard": 403,
+  "glass": 501,
+  "metal": 410,
+  "paper": 594,
+  "plastic": 482,
+  "trash": 137
+ },
+ "removed_cross_class_exact": 6,
+ "removed_same_class_exact_copies": 0,
+ "removed_near_duplicates": 21,
+ "clean_images": 2500,
+ "per_class_clean": {
+  "cardboard": 401,
+  "glass": 498,
+  "metal": 407,
+  "paper": 577,
+  "plastic": 480,
+  "trash": 137
+ },
+ "cutout_accepted": 1112,
+ "cutout_rejected": 1388,
+ "cutout_accepted_by_split": {
+  "train": 782,
+  "val": 168,
+  "test": 162
+ },
+ "table": {
+  "train": {
+   "cardboard": 335,
+   "glass": 527,
+   "metal": 435,
+   "paper": 538,
+   "plastic": 529,
+   "trash": 384
+  },
+  "val": {
+   "cardboard": 60,
+   "glass": 75,
+   "metal": 61,
+   "paper": 86,
+   "plastic": 72,
+   "trash": 21
+  },
+  "test": {
+   "cardboard": 60,
+   "glass": 75,
+   "metal": 61,
+   "paper": 87,
+   "plastic": 72,
+   "trash": 20
+  },
+  "val_bgshift": {
+   "cardboard": 11,
+   "glass": 43,
+   "metal": 32,
+   "paper": 25,
+   "plastic": 44,
+   "trash": 13
+  },
+  "test_bgshift": {
+   "cardboard": 13,
+   "glass": 40,
+   "metal": 34,
+   "paper": 26,
+   "plastic": 37,
+   "trash": 12
+  }
+ },
+ "train_total_with_synthetic": 2748,
+ "train_synthetic": 998,
+ "merge": {
+  "gd_total": 7463,
+  "gd_exact_trashnet_overlap": 2218,
+  "gd_within_dups": 12,
+  "gd_loose_trashnet_matches_extra": 1,
+  "gd_excluded_total": 2228,
+  "gd_novel_available": {
+   "cardboard": 1020,
+   "glass": 1373,
+   "metal": 530,
+   "paper": 766,
+   "plastic": 1144,
+   "trash": 402
+  },
+  "table": {
+   "train": {
+    "cardboard": 735,
+    "glass": 927,
+    "metal": 835,
+    "paper": 938,
+    "plastic": 929,
+    "trash": 666
+   },
+   "val": {
+    "cardboard": 100,
+    "glass": 115,
+    "metal": 101,
+    "paper": 126,
+    "plastic": 112,
+    "trash": 61
+   },
+   "test": {
+    "cardboard": 60,
+    "glass": 75,
+    "metal": 61,
+    "paper": 87,
+    "plastic": 72,
+    "trash": 20
+   },
+   "test_external": {
+    "cardboard": 80,
+    "glass": 80,
+    "metal": 80,
+    "paper": 80,
+    "plastic": 80,
+    "trash": 80
+   },
+   "val_bgshift": {
+    "cardboard": 11,
+    "glass": 43,
+    "metal": 32,
+    "paper": 25,
+    "plastic": 44,
+    "trash": 13
+   },
+   "test_bgshift": {
+    "cardboard": 13,
+    "glass": 40,
+    "metal": 34,
+    "paper": 26,
+    "plastic": 37,
+    "trash": 12
+   }
+  },
+  "gd_added": {
+   "train": {
+    "cardboard": 400,
+    "glass": 400,
+    "metal": 400,
+    "paper": 400,
+    "plastic": 400,
+    "trash": 282
+   },
+   "val": {
+    "cardboard": 40,
+    "glass": 40,
+    "metal": 40,
+    "paper": 40,
+    "plastic": 40,
+    "trash": 40
+   },
+   "test_external": {
+    "cardboard": 80,
+    "glass": 80,
+    "metal": 80,
+    "paper": 80,
+    "plastic": 80,
+    "trash": 80
+   }
+  },
+  "split_totals": {
+   "train": 5030,
+   "val": 615,
+   "test": 375,
+   "test_external": 480,
+   "val_bgshift": 168,
+   "test_bgshift": 162
+  }
+ }
+}
