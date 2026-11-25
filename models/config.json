@@ -1,0 +1,11 @@
+{
+  "classes": ["cardboard", "glass", "metal", "paper", "plastic", "trash"],
+  "input_size_hw": [192, 256],
+  "mean": [0.485, 0.456, 0.406],
+  "std": [0.229, 0.224, 0.225],
+  "ensemble": "mean of the members' softmax outputs",
+  "members": [
+    {"name": "E1_real+synthetic", "arch": "efficientnet_b0", "file": "final/E1_real+synthetic.pt"},
+    {"name": "E2_mobilenetv3", "arch": "mobilenet_v3_large", "file": "final/E2_mobilenetv3.pt"}
+  ]
+}
