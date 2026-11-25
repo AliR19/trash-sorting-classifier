@@ -1,0 +1,9 @@
+torch>=2.2
+torchvision>=0.17
+numpy
+pillow
+flask>=3.0
+# only needed for evaluate.py and the notebook
+scikit-learn
+pandas
+matplotlib
