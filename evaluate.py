@@ -4,7 +4,7 @@
     python evaluate.py --splits test_external
 
 Writes:
-  results/final_metrics.csv          accuracy, macro precision / recall / F1, per-class recall, 95% Wilson interval
+  results/final_metrics.csv          accuracy (+ 95% Wilson interval), macro precision / recall / F1, bin accuracy with the rules in bins.json, per-class recall
   results/final_per_class_<split>.csv  precision, recall, F1, support per class
   results/confusion_<split>.png      confusion matrix (counts)
   results/roc_<split>.png            one-vs-rest ROC curves with AUC
@@ -133,12 +133,15 @@ def main():
             acc = accuracy_score(y, pred)
             p, r, f, sup = precision_recall_fscore_support(y, pred, labels=range(len(classes)), zero_division=0)
             lo, hi = wilson(int((pred == y).sum()), len(y))
+            bin_of = np.array([rules.lookup(c)["bin"] for c in classes])   # class -> bin name with the rules in bins.json
+            bin_acc = float((bin_of[y] == bin_of[pred]).mean())
             row = dict(model=name, split=split, n=len(y), accuracy=acc, acc_ci_low=lo, acc_ci_high=hi,
-                       macro_precision=p.mean(), macro_recall=r.mean(), macro_f1=f1_score(y, pred, average="macro"))
+                       macro_precision=p.mean(), macro_recall=r.mean(), macro_f1=f1_score(y, pred, average="macro"),
+                       bin_accuracy=bin_acc)
             row.update({f"recall_{k}": v for k, v in zip(classes, r)})
             rows.append(row)
             print(f"{name:20s} {split:14s} n={len(y):4d} acc={acc:.3f} [{lo:.3f},{hi:.3f}] macroF1={row['macro_f1']:.3f} "
-                  f"worst-class recall={r.min():.2f} ({classes[int(r.argmin())]})")
+                  f"worst-class recall={r.min():.2f} ({classes[int(r.argmin())]}) bin accuracy={bin_acc:.3f}")
             if members is None:
                 pd.DataFrame(dict(precision=p, recall=r, f1=f, support=sup), index=classes).round(4).to_csv(
                     OUT / f"final_per_class_{split}.csv")

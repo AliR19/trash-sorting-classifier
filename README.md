@@ -13,10 +13,12 @@ Final model: an ensemble of EfficientNet-B0 and MobileNetV3-Large (mean of their
 | evaluation set | n | accuracy (95% interval) | macro-F1 | worst-class recall |
 |---|---|---|---|---|
 | TrashNet test photos | 375 | 0.912 (0.879 to 0.937) | 0.883 | 0.55 (trash, n=20) |
-| External test set (Garbage Dataset photos, a different source) | 480 | 0.933 (0.907 to 0.952) | 0.933 | 0.90 (paper) |
+| External test set (Garbage Dataset photos held out from training) | 480 | 0.933 (0.907 to 0.952) | 0.933 | 0.90 (paper) |
 | TrashNet test photos on new synthetic backgrounds | 162 | 0.710 (0.636 to 0.774) | 0.673 | 0.46 (cardboard, n=13) |
 
-Published results on the same datasets, for context: pretrained GoogLeNet on TrashNet 0.912 (0.954 with augmentation) with a random 10% hold-out ([Yu & Grammenos](https://arxiv.org/abs/2108.06274)); 0.93 to 0.96 for ResNet / EfficientNetV2 on the 10-class Garbage Dataset ([Kunwar](https://arxiv.org/abs/2602.10500)). Our test sets are held out differently and use 6 classes, so the numbers are a reference point, not a like-for-like comparison.
+Published results on the same datasets, for context: pretrained GoogLeNet on TrashNet 0.912 (0.954 with augmentation) with a random 10% hold-out ([Yu & Grammenos](https://arxiv.org/abs/2108.06274)); 0.93 to 0.96 for ResNet / EfficientNetV2 on the 10-class Garbage Dataset ([Kunwar](https://arxiv.org/abs/2602.10500), version 1; the latest version reports 95.13% for EfficientNetV2S). Our test sets are held out differently and use 6 classes, so the numbers are a reference point, not a like-for-like comparison.
+
+With the default bin rules in `bins.json` (paper and cardboard together, glass / metal / plastic as containers, trash as garbage), the item goes in the right bin for 96.3% of photos on both the TrashNet test set and the external set, and 84.0% on the new-background set, because most class mistakes stay inside one bin.
 
 Things to know before trusting the numbers:
 
@@ -127,7 +129,7 @@ The saved models in `models/` come from this notebook (the E1 and E2 members wer
 - Only six material classes, one item per photo, no food waste, electronics or hazardous items.
 - Few `trash` examples (20 test photos on TrashNet, 12 on the new-background set). Per-class numbers for it are very uncertain.
 - The synthetic backgrounds are procedural textures and the cut-outs are approximate, and "trash" synthetics come from only 72 source photos.
-- The Garbage Dataset overlaps TrashNet by about 30% (excluded here) and may overlap other public datasets that were not checked; its labels were not audited. The external test set is a different collection, not guaranteed to match real-world photos.
+- The Garbage Dataset overlaps TrashNet by about 30% (excluded here) and may overlap other public datasets that were not checked; its labels were not audited. The external test set is held-out Garbage Dataset photos; other Garbage Dataset photos are in the training data, so it is not a test on a collection the model has never seen.
 - Real-world photos from a phone camera in a kitchen or at a collection point were not tested. The next step would be a small set of such photos, taken locally, to check how the numbers carry over.
 - Bin rules are a default and need to be set for the city where the app is used.
 
