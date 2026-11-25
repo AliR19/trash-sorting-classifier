@@ -1,4 +1,4 @@
-"""Downstream application: upload a photo of a waste item, get its class and the bin it goes in.
+"""Web app: upload a photo of a waste item, get its class and the bin it goes in.
 
     python app.py                # then open http://127.0.0.1:5000
     python app.py --port 8080
