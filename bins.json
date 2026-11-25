@@ -1,7 +1,7 @@
 {
   "_note": "Default bin rules. Change these to match your own city's collection rules. The classifier only knows the 6 material classes; this file maps each one to a bin.",
   "cardboard": {"bin": "Paper & cardboard recycling", "tip": "Flatten the box and keep it dry."},
-  "paper": {"bin": "Paper & cardboard recycling", "tip": "Clean, dry paper only (no greasy or waxed paper)."},
+  "paper": {"bin": "Paper & cardboard recycling", "tip": "Clean, dry paper only (no greasy or waxed paper, tissues or toilet paper)."},
   "glass": {"bin": "Container recycling", "tip": "Empty and rinse bottles and jars; remove lids."},
   "metal": {"bin": "Container recycling", "tip": "Empty and rinse cans; do not crush if your city asks for whole cans."},
   "plastic": {"bin": "Container recycling", "tip": "Empty and rinse; check the number on the bottom against your city's list."},

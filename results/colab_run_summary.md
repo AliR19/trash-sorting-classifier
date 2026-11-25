@@ -1,6 +1,6 @@
 # Results of the clean top-to-bottom Colab run (T4 GPU, seed 42)
 
-Copied from the output of `notebooks/TME6015_FinalProject.ipynb`. Sets: `test` = 375 TrashNet photos (trash n=20), `external` = 480 Garbage Dataset photos (80 per class), `bgshift` = 162 test photos on synthetic new backgrounds (same synthetic pipeline as the synthetic training images, so it is an optimistic robustness check).
+Copied from the output of `notebooks/TME6015_FinalProject.ipynb`. Sets: `test` = 375 TrashNet photos (trash n=20), `external` = 480 held-out Garbage Dataset photos (80 per class; called the GD hold-out in the README and report: other GD photos are in training, so it is not an independent benchmark), `bgshift` = 162 test photos on synthetic new backgrounds (same synthetic pipeline as the synthetic training images, so it measures tolerance to that recipe, not real-world robustness).
 
 ## Macro-F1
 
